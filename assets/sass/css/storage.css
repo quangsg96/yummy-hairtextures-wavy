@@ -1,0 +1,316 @@
+                                            npm install -g sass
+                                            sass ./style.scss ./css/style.css --watch
+
+/* COPY-PASTE : '.wavybar' n it don't have any breakpoints */
+/* start */
+// WAVYBAR
+.wavybar {
+    background-color: #000;
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    h1 {
+        color: #fff;
+        text-align: center;
+        width: 100%;
+        height: 150px;
+        padding: 50px 0;
+        border-top: 1px solid #777;
+        border-bottom: 1px solid #777;
+        text-transform: uppercase;
+        font-weight: 400;
+        line-height: 1.2;
+        font-size: 38px;
+    }
+}
+/* end */
+
+/* COPY-PASTE : '.product' n its breakpoints */
+/* (- ; 499] -> show 1 product on one line */
+/* start */
+// PRODUCT
+.product {
+    // ALLPRODUCT
+    .allproduct {
+        // viewall ; breakpoints (- ; 1279] ; [1280 ; +)
+        .viewall {
+            cursor: pointer;
+            margin-left: 3%;
+            i {
+                font-size: 12px;
+            }
+            span {
+                font-size: 14px;
+                text-transform: uppercase;
+            }
+        }
+        // ul
+        ul {
+            margin-top: 35px;
+            li {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                font-size: 19px;
+                margin-bottom: 40px;
+                > a:last-child {
+                    display: inline-block;
+                    margin-top: 7px;
+                    span:last-child {
+                        font-size: 16px;
+                    }
+                    span {
+                        color: #939393;
+                    }
+                }
+                > span {
+                    margin-top: 12px;
+                    cursor: pointer;
+                }
+                .hover-relative {
+                    position: relative;
+                    // 'SALE' notification
+                    span {
+                        background-color: #000;
+                        color: #fff;
+                        position: absolute;
+                        top: 0;
+                        right: calc(100% - 90%);
+                        padding: 14px 10px;
+                        font-size: 23px;
+                    }
+                }
+                // 'SALE' sale notification
+                .sale-price {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    .sale-price-child-1 {
+                        margin-right: 10px;
+                    }
+                    .sale-price-child-2 {
+                        margin-left: 10px;
+                        color: #c3536c;
+                        font-size: 25px;
+                    }
+                }
+            }
+        }
+        i {
+            margin-right: 7px;
+            font-size: 22px;
+        }
+        ion-icon {
+            width: 28px;
+            height: 28px;
+        }
+        span, a {
+            color: #231f20;
+        }
+        span {
+            text-align: center;
+        }
+        img {
+            margin: 0 auto;
+            width: 80%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product--sale {
+            font-size: 22px;
+        }
+        button {
+            display: none;
+        }
+    }
+
+    // PRODUCT WAVY --- BACKUP FOR ALLPRODUCT (.allproduct - direct above)
+    .product__wavy {
+        // ul {
+        //     li {
+        //         text-align: center;
+        //         display: flex;
+        //         flex-direction: column;
+        //         font-size: 19px;
+        //         margin-bottom: 40px;
+        //         > a:last-child {
+        //             display: inline-block;
+        //             margin-top: 7px;
+        //             span:last-child {
+        //                 font-size: 15px;
+        //             }
+        //             span {
+        //                 color: #939393;
+        //             }
+        //         }
+        //         > span {
+        //             margin-top: 12px;
+        //             cursor: pointer;
+        //         }
+        //     }
+        // }
+        // span, a {
+        //     color: #231f20;
+        // }
+        // span {
+        //     text-align: center;
+        // }
+        // img {
+        //     margin: 0 auto;
+        //     width: 80%;
+        //     height: 100%;
+        //     object-fit: cover;
+        // }
+        // h3 {
+        //     text-align: center;
+        // }
+        // ul {
+        //     margin-top: 35px;
+        // }
+        // .product--sale {
+        //     font-size: 22px;
+        // }
+    }
+
+    // PAGINATION
+    .pagination {
+        margin-top: 60px;
+        text-align: center;
+        --color-pagination: #3d4246;
+        a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 52px;
+            height: 38px;
+            border: 1px solid var(--color-pagination);
+            color: var(--color-pagination);
+            background-color: transparent;
+            i {
+                margin: 0 auto;
+                font-size: 18px;
+            }
+        }
+        a:first-child {
+            opacity: 0.5;
+        }
+        a:last-child {
+            cursor: pointer;
+            border: 1px solid var(--color-pagination);
+            color: var(--color-pagination);
+        }
+        span {
+            margin: 0 30px;
+            color: var(--color-pagination);
+        }
+    }
+}
+/* end */
+
+
+/* [500 ; 849] -> show 2 products on one line */
+/* start */
+// MIN-WIDTH: 500 PX
+@media screen and (min-width: 500px) {
+    .product {
+        .allproduct {
+            ul {
+                display: flex;
+                flex-flow: row wrap;
+            }
+            li {
+                width: 50%;
+                .hover-relative {
+                    span {
+                        right: calc(100% - 96.5%) !important;
+                        // đã xuly xong 'SALE' notification của 34TH PRODUCT ở tất cả breakpoints
+                        // thêm 'SALE' notification cho các PRODUCT FRAME còn lại
+                    }
+                }
+            }
+            img {
+                width: 93%;
+            }
+        }
+    }
+}
+/* end */
+
+
+/* [850 ; +) -> show 3 products on one line */
+/* start */
+// MIN-WIDTH: 850 PX
+@media screen and (min-width: 850px) {
+    .product {
+        .allproduct {
+            ul {
+                justify-content: center;
+            }
+            li {
+                width: 32%;
+            }
+        }
+    }
+}
+/* end */
+
+/* :HOVER '.product' */
+/* start */
+// MIN-WIDTH: 1280 PX
+@media screen and (min-width: 1280px) {
+    .product {
+        .allproduct {
+            .viewall {
+                margin-left: 12%;
+            }
+            li {
+                height: fit-content;
+                width: 26%;
+                .hover-relative {
+                    position: relative;
+                }
+            }
+            button {
+                display: inline-block;
+            }
+        }
+    }
+    // :HOVER - .allproduct
+    .allproduct li:hover .hover-title {
+        border-bottom: 1px solid #000;
+        padding-bottom: 0.1px;
+    }
+    .allproduct li:hover img {
+        // cách 1:
+        // -webkit-filter: brightness(110%);
+        // cách 2:
+        filter: alpha(opacity=80);
+        opacity: .8;
+    }
+    .allproduct li:hover .hover-tag {
+        opacity: 1;
+    }
+    .hover-tag {
+        // please see .hover-relative
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 5%;
+        @include borderNone;
+        padding: 5px 20px;
+        background-color: #C3536C;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.7s;
+    }
+    .hover-tag:hover {
+        color: #404040;
+        transition: all 1s;
+    }
+}
+/* end */
